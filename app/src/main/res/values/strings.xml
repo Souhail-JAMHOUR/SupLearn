@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Learning app</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="registration_terms">I accept The terms for Registration</string>
+    <string name="register">Register</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="avatar">Avatar</string>
+    <string name="login">login</string>
+    <string name="title_activity_registeration">RegisterationActivity</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="become_a_member">Become a Student</string>
+    <string name="welcome_to_suplearn">Welcome to SupLearn</string>
+
+    <!--    lorem ipsium -->
+    <string name="lorem">Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.</string>
+    <string name="course_image">Course_Image</string>
+    <string name="enroll">Enroll</string>
+    <string name="student_id">Student ID</string>
+    <string name="major">Major:</string>
+    <string name="student_name">Name:</string>
+    <string name="time_table">Time Table</string>
+    <string name="courses">Courses</string>
+</resources>
