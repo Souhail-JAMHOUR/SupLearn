@@ -53,7 +53,7 @@
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/student_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -73,9 +73,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="@string/password"
-        app:layout_constraintBottom_toBottomOf="@+id/Password"
+        app:layout_constraintBottom_toBottomOf="@+id/first_password"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Password" />
+        app:layout_constraintTop_toTopOf="@+id/first_password" />
 
     <CheckBox
         android:id="@+id/legal_term_check"
@@ -87,7 +87,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <EditText
-        android:id="@+id/Password"
+        android:id="@+id/first_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -98,7 +98,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/student_email" />
 
     <TextView
         android:id="@+id/textView8"
@@ -124,7 +124,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/Password" />
+        app:layout_constraintTop_toBottomOf="@+id/first_password" />
 
     <TextView
         android:id="@+id/textView7"
@@ -142,9 +142,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="@string/email"
-        app:layout_constraintBottom_toBottomOf="@+id/email"
+        app:layout_constraintBottom_toBottomOf="@+id/student_email"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/email"
+        app:layout_constraintTop_toTopOf="@+id/student_email"
         app:layout_constraintVertical_bias="0.517" />
 
     <Button

@@ -17,9 +17,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Intent intent = getIntent();
         name = findViewById(R.id.student_name);
-        major = findViewById(R.id.student_major);
-        name.setText(intent.getStringExtra("name"));
-        major.setText(intent.getStringExtra("major"));
+//        major = findViewById(R.id.student_major);
+        name.setText(intent.getStringExtra("email"));
         goToCourses = findViewById(R.id.courses_button);
         goToCourses.setOnClickListener(v -> displayCourses());
     }

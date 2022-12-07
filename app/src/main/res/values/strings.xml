@@ -18,9 +18,9 @@
     <string name="lorem">Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.</string>
     <string name="course_image">Course_Image</string>
     <string name="enroll">Enroll</string>
-    <string name="student_id">Student ID</string>
+    <string name="student_id">Student ID:</string>
     <string name="major">Major:</string>
-    <string name="student_name">Name:</string>
+    <string name="student_email">Email:</string>
     <string name="time_table">Time Table</string>
     <string name="courses">Courses</string>
 </resources>

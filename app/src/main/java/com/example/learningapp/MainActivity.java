@@ -11,11 +11,13 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button loginButton, registrationButton;
     EditText email , password;
+    DbManager dbManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity_main);
+        dbManager = new DbManager(MainActivity.this);
         loginButton = findViewById(R.id.LoginButton);
         registrationButton = findViewById(R.id.RegisterButton);
         email = findViewById(R.id.email_adress);
@@ -32,10 +34,14 @@ public class MainActivity extends AppCompatActivity {
     public void login(EditText email, EditText password){
         String emailText = email.getText().toString();
         String passwordText = password.getText().toString();
-        if(emailText.equals("admin") && passwordText.equals("admin")){
-            Intent login = new Intent(this, HomeActivity.class);
-            login.putExtra("name",emailText);
-            login.putExtra("major","CISI4");
+        Intent login = new Intent(this, HomeActivity.class);
+        if(dbManager.verifyUser(emailText,passwordText)){
+           //auth verified
+            login.putExtra("email",emailText);
+            startActivity(login);
+        }
+        else if(emailText.equals("admin") && passwordText.equals("admin")){
+            login.putExtra("email","ADMIN VIEW");
             startActivity(login);
         }
         else{

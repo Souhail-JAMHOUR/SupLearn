@@ -20,8 +20,10 @@ public class CourseMaterials extends AppCompatActivity {
         image = findViewById(R.id.material_course_logo);
         Intent intent = getIntent();
         String titleToAdd = intent.getStringExtra("title");
+        String descriptiontoAdd = intent.getStringExtra("description");
         int img = intent.getIntExtra("image",0);
         title.setText(titleToAdd);
         image.setImageResource(img);
+        desc.setText(descriptiontoAdd);
     }
 }
