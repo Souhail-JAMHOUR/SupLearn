@@ -2,16 +2,23 @@ package com.example.learningapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.learningapp.databinding.LoginActivityMainBinding;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     Button loginButton, registrationButton;
     EditText email , password;
     DbManager dbManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +43,17 @@ public class MainActivity extends AppCompatActivity {
         String passwordText = password.getText().toString();
         Intent login = new Intent(this, HomeActivity.class);
         if(dbManager.verifyUser(emailText,passwordText)){
+            ArrayList<String> info = dbManager.getUserInfo(emailText);
            //auth verified
-            login.putExtra("email",emailText);
+            login.putExtra("id",info.get(1));
+            login.putExtra("name",info.get(2));
+            login.putExtra("major",info.get(3));
+            login.putExtra("email",info.get(4));
             startActivity(login);
         }
         else if(emailText.equals("admin") && passwordText.equals("admin")){
-            login.putExtra("email","ADMIN VIEW");
+            login.putExtra("name","ADMIN");
+            login.putExtra("id","ADMIN");
             startActivity(login);
         }
         else{

@@ -13,7 +13,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     Button register;
     CheckBox check ;
-    EditText studentId,email,password, repeatedPassword;
+    EditText studentId,email,fullName, major, password, repeatedPassword;
     DbManager dbManager ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +26,23 @@ public class RegistrationActivity extends AppCompatActivity {
         email = findViewById(R.id.student_email);
         password = findViewById(R.id.first_password);
         repeatedPassword = findViewById(R.id.repeated_password);
+        fullName = findViewById(R.id.full_name);
+        major = findViewById(R.id.major);
 
         register.setOnClickListener(v->{
             // add the logic to register the user and then send him to the login page
             String retrievedEmail = email.getText().toString();
             String retrievedId = studentId.getText().toString();
             String retrievedPassword = password.getText().toString();    // maybe log him directly after the registration
-            registrationDone(retrievedId,retrievedEmail,retrievedPassword);
+            String retrievedName = fullName.getText().toString();
+            String retrievedMajor = major.getText().toString();
+            registrationDone(retrievedId,retrievedName, retrievedMajor,retrievedEmail,retrievedPassword);
         });
     }
-    public void registrationDone(String studentId, String studentEmail, String studentPassword){
+    public void registrationDone(String studentId, String name, String major, String studentEmail, String studentPassword){
         Intent registrationDone = new Intent(this,MainActivity.class);
         if (checkDone(check)){
-           if(studentId.isEmpty() && studentEmail.isEmpty() && studentPassword.isEmpty()){
+           if(studentId.isEmpty() && studentEmail.isEmpty() && studentPassword.isEmpty() && major.isEmpty()&& name.isEmpty()){
                Toast.makeText(getApplicationContext(),"Please enter valid information",Toast.LENGTH_LONG).show();
                return;
            }
@@ -46,7 +50,7 @@ public class RegistrationActivity extends AppCompatActivity {
                Toast.makeText(getApplicationContext(),"Passwords don't match",Toast.LENGTH_LONG).show();
                return;
            }
-           dbManager.addNewUser(studentId,studentEmail,studentPassword);
+           dbManager.addNewUser(studentId,name,major,studentEmail,studentPassword);
             Toast.makeText(getApplicationContext(),"Registration done.",Toast.LENGTH_LONG).show();
             startActivity(registrationDone);
         }

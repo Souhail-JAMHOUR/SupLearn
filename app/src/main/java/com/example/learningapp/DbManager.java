@@ -1,12 +1,13 @@
 package com.example.learningapp;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import android.content.ContentValues;
+
+import java.util.ArrayList;
 
 public class DbManager extends SQLiteOpenHelper {
 
@@ -30,6 +31,8 @@ public class DbManager extends SQLiteOpenHelper {
     private static final String EMAIL_COL = "email";
 
     private static final String PASSWORD_COL = "password";
+    private static final String FULLNAME_COL = "name";
+    private static final String MAJOR_COL = "major";
 
     // creating a constructor for our database handler.
     public DbManager(Context context) {
@@ -45,7 +48,9 @@ public class DbManager extends SQLiteOpenHelper {
         // along with their data types.
         String query = "CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + STUDENT_ID + " TEXT,"
+                + STUDENT_ID + " INTEGER,"
+                + FULLNAME_COL + " TEXT,"
+                + MAJOR_COL + " TEXT,"
                 + EMAIL_COL + " TEXT,"
                 + PASSWORD_COL + " TEXT)";
 
@@ -55,7 +60,7 @@ public class DbManager extends SQLiteOpenHelper {
     }
 
     // this method is use to add new course to our sqlite database.
-    public void addNewUser(String studentId, String email, String password) {
+    public void addNewUser(String studentId, String fullName,String major,String email, String password) {
 
         // on below line we are creating a variable for
         // our sqlite database and calling writable method
@@ -69,6 +74,8 @@ public class DbManager extends SQLiteOpenHelper {
         // on below line we are passing all values
         // along with its key and value pair.
         values.put(STUDENT_ID, studentId);
+        values.put(FULLNAME_COL,fullName);
+        values.put(MAJOR_COL,major);
         values.put(EMAIL_COL, email);
         values.put(PASSWORD_COL, password);
 
@@ -83,12 +90,12 @@ public class DbManager extends SQLiteOpenHelper {
     public boolean verifyUser(String email, String password){
         boolean auth = false;
         SQLiteDatabase db = this.getReadableDatabase();
-        String [] userInfo = {ID_COL,STUDENT_ID,EMAIL_COL,PASSWORD_COL};
+        String [] userInfo = {ID_COL,STUDENT_ID,FULLNAME_COL, MAJOR_COL,EMAIL_COL,PASSWORD_COL};
         String selection = EMAIL_COL + " = ?";
         String[] selectionArgs = {email};
         Cursor cursor = db.query(TABLE_NAME,userInfo,selection,selectionArgs,null,null,null);
         while(cursor.moveToNext()){
-            String retrievedPassword = cursor.getString(3);
+            String retrievedPassword = cursor.getString(5);
             if(retrievedPassword.equals(password)){
                 auth = true;
             }
@@ -96,6 +103,35 @@ public class DbManager extends SQLiteOpenHelper {
         cursor.close();
         return auth;
     }
+    public ArrayList<String> getUserInfo(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String [] userInfo = {ID_COL,STUDENT_ID,FULLNAME_COL, MAJOR_COL,EMAIL_COL,PASSWORD_COL};
+        ArrayList<String> info = new ArrayList<>();
+        String selection = EMAIL_COL + " = ?";
+        String[] selectionArgs = {email};
+        Cursor cursor = db.query(TABLE_NAME,userInfo,selection,selectionArgs,null,null,null);
+        while(cursor.moveToNext()){
+            for(int i=0;i<6;++i){
+                info.add(cursor.getString(i));
+            }
+        }
+        cursor.close();
+        return info;
+    }
+
+//    public String getUserId(String email){
+//        String userId = "Not found";
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        String [] userInfo = {ID_COL,STUDENT_ID,EMAIL_COL,PASSWORD_COL};
+//        String selection = EMAIL_COL + " = ?";
+//        String[] selectionArgs = {email};
+//        Cursor cursor = db.query(TABLE_NAME,userInfo,selection,selectionArgs,null,null,null);
+//        while(cursor.moveToNext()){
+//            userId = cursor.getString(1);
+//            }
+//        cursor.close();
+//        return userId;
+//    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

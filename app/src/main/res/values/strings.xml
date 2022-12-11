@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Learning app</string>
+    <string name="app_name">SupMTI</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="registration_terms">I accept The terms for Registration</string>
@@ -18,9 +18,26 @@
     <string name="lorem">Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.</string>
     <string name="course_image">Course_Image</string>
     <string name="enroll">Enroll</string>
-    <string name="student_id">Student ID:</string>
+    <string name="student_id">Student ID</string>
     <string name="major">Major:</string>
     <string name="student_email">Email:</string>
     <string name="time_table">Time Table</string>
     <string name="courses">Courses</string>
+    <string name="full_name">Full Name</string>
+    <string name="your_major">Your Major</string>
+
+
+<!--    courses description-->
+    <string name="java">Java is a programming language and computing platform first released by Sun Microsystems in 1995. It has evolved from humble beginnings to power a large share of today’s digital world, by providing the reliable platform upon which many services and applications are built. New, innovative products and digital services designed for the future continue to rely on Java, as well.</string>
+    <string name="angular">Angular is TypeScript-based, free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS.</string>
+    <string name="kotlin">Kotlin is a general purpose, free, open source, statically typed “pragmatic” programming language initially designed for the JVM (Java Virtual Machine) and Android, and combines object-oriented and functional programming features. It is focused on interoperability, safety, clarity, and tooling support. Versions of Kotlin targeting JavaScript ES5.1 and native code (using LLVM) for a number of processors are in production as well.</string>
+    <string name="react">React is a JavaScript library (not a framework) that creates user interfaces (UIs) in a predictable and efficient way using declarative code. You can use it to help build single page applications and mobile apps, or to build complex apps if you utilise it with other libraries.</string>
+    <string name="lua">Lua is a simple and powerful scripting language. It supports a variety of programming paradigms, including procedural, object-oriented, and functional programming. While Lua can also be used as a standalone language, it is more common nowadays to embed it within other applications. Lua was designed with speed, portability, and ease-of-use in mind.
+
+Lua is also one of the leading scripting languages used in game development, due to its simple syntax and short learning curve.</string>
+    <string name="rust">Rust is a multi-paradigm, general-purpose programming language. Rust emphasizes performance, type safety, and concurrency. Rust enforces memory safety—that is, that all references point to valid memory—without requiring the use of a garbage collector or reference counting present in other memory-safe languages.[13][14] To simultaneously enforce memory safety and prevent concurrent data races, Rust\'s "borrow checker" tracks the object lifetime of all references in a program during compilation.[15] Rust is popular for systems programming[13] but also offers high-level features including some functional programming constructs.</string>
+    <string name="course_not_available">We will provide a new session as soon as possible!</string>
+    <string name="enrolled_courses">Enrolled Courses</string>
+    <string name="unsubscribe">Unsub</string>
+    <string name="go_to_course">Go To Course</string>
 </resources>

@@ -1,14 +1,26 @@
 package com.example.learningapp;
 
+
+import java.time.LocalDate;
+
 public class Course {
+    private LocalDate deadline;
     private String name;
     private String description;
     private int logo;
 
-    Course(String name, String description, int logo){
+    Course(String name, String description, int logo, LocalDate deadline){
         this.name = name;
         this.description = description;
         this.logo = logo;
+        this.deadline = deadline;
+    }
+    Course(int logo){
+        this.logo = logo;
+    }
+
+    public LocalDate getDeadline() {
+        return deadline;
     }
 
     public String getName() {
@@ -41,6 +53,7 @@ public class Course {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", logo=" + logo +
+                ", deadline=" + deadline +
                 '}';
     }
 }

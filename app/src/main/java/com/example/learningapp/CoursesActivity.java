@@ -8,17 +8,17 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class CoursesActivity extends AppCompatActivity {
-    final String lorem = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
     final Course[] courses = {
-            new Course("Java",lorem, R.drawable.java_logo),
-            new Course("React", lorem, R.drawable.react_logo),
-            new Course("Angular", lorem, R.drawable.angular_logo),
-            new Course("Kotlin", lorem, R.drawable.kotlin_logo),
-            new Course("Rust", lorem, R.drawable.rust_logo)
+            new Course("Java",getString(R.string.java), R.drawable.java_logo, LocalDate.of(2023,5,11)),
+            new Course("React",getString(R.string.react), R.drawable.react_logo, LocalDate.of(2023,1,20)),
+            new Course("Angular", getString(R.string.angular), R.drawable.angular_logo, LocalDate.of(2022,12,30)),
+            new Course("Kotlin", getString(R.string.kotlin), R.drawable.kotlin_logo, LocalDate.of(2023,2,10)),
+            new Course("Rust", getString(R.string.rust), R.drawable.rust_logo, LocalDate.of(2022,9,1))
     };
     ArrayList<Course> coursesArrayList = new ArrayList<>();
     ListView courseList;
