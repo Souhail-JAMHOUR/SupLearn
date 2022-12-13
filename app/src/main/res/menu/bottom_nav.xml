@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="home" android:icon="@drawable/ic_baseline_home_24" android:id="@+id/home" />
-    <item android:title="courses" android:icon="@drawable/ic_baseline_school_24"  android:id="@+id/courses"/>
-    <item android:title="profile" android:icon="@drawable/ic_baseline_person_24" android:id="@+id/profile"/>
+    <item android:title="@string/home" android:icon="@drawable/ic_baseline_home_24" android:id="@+id/home" />
+    <item android:title="@string/courses" android:icon="@drawable/ic_baseline_school_24"  android:id="@+id/courses"/>
+    <item android:title="@string/enrolled_courses" android:icon="@drawable/ic_baseline_bookmark_added_24" android:id="@+id/profile"/>
 </menu>

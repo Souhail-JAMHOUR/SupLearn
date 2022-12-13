@@ -8,65 +8,65 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class ProfileFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    TextView id,name;
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    // this should get courses from db
+    public static ArrayList<Course> enrolledCourses = new ArrayList<>();
+    TextView id, name, notification;
+    Button btnNoCourses;
+    DbManager dbManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        Intent intent = getActivity().getIntent();
-        id = view.findViewById(R.id.student_id);
-        name = view.findViewById(R.id.student_name);
-        id.setText(intent.getStringExtra("id"));
-        name.setText(intent.getStringExtra("name"));
+//        Intent intent = getActivity().getIntent();
+//        dbManager = new DbManager(getContext());
+//        ArrayList<String> info = dbManager.getUserInfo(MainActivity.usermail);
+//        String courses = dbManager.getUserInfo(HomeActivity.userEmail).get(6);
+//        String courses = info.get(6);
+//        if (!(courses.isEmpty())){
+//            String[] coursesList = courses.split(",");
+//            for(String course : coursesList){
+//                enrollCourse(course);
+//            }
+//        }
+        btnNoCourses = view.findViewById(R.id.btn_nocourses);
+        btnNoCourses.setVisibility(View.GONE);
+        notification = view.findViewById(R.id.home_notificaton);
+        ListView listView = (ListView) view.findViewById(R.id.enrolled_courses);
+        btnNoCourses.setOnClickListener(view1 -> goToCourses());
+        if (enrolledCourses.isEmpty()) {
+            notification.setText("No Enrolled Course");
+            btnNoCourses.setVisibility(View.VISIBLE);
+        }
+        CoursesAdapter adapter = new CoursesAdapter(getContext(), enrolledCourses);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), CourseMaterials.class);
+                intent.putExtra("title", enrolledCourses.get(i).getName());
+                intent.putExtra("description", enrolledCourses.get(i).getDescription());
+                intent.putExtra("image", enrolledCourses.get(i).getLogo());
+                intent.putExtra("deadLine", enrolledCourses.get(i).getDeadline().toString());
+                startActivity(intent);
+            }
+        });
         return view;
+    }
+
+    public void goToCourses() {
+        Intent intent = new Intent(getContext(), HomeActivity.class);
+        intent.putExtra("Frag", "courses");
+        startActivity(intent);
     }
 }

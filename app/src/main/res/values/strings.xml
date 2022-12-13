@@ -40,4 +40,6 @@ Lua is also one of the leading scripting languages used in game development, due
     <string name="enrolled_courses">Enrolled Courses</string>
     <string name="unsubscribe">Unsub</string>
     <string name="go_to_course">Go To Course</string>
+    <string name="events">Events</string>
+    <string name="home">Home</string>
 </resources>

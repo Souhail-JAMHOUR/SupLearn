@@ -1,29 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".HomeFragment">
+
     <TextView
         android:id="@+id/home_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:text="@string/enrolled_courses"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/home_notificaton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="@color/red_warning"/>
+        android:text="@string/events"
+        android:textSize="40sp"
+        android:textStyle="bold|italic" />
 
-    <ListView
-        android:id="@+id/enrolled_courses"
+    <ImageView
+        android:id="@+id/first_article"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="200dp"
+        android:layout_margin="50dp"
+        android:src="@drawable/soft_skill_conf"/>
+
+    <ImageView
+        android:id="@+id/second_article"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_margin="50dp"
+        android:src="@drawable/neovim_conf" />
+
+    <ImageView
+        android:id="@+id/third_article"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_margin="50dp"
+        android:src="@drawable/soft_skill_conf"/>
+    <ImageView
+        android:id="@+id/fourth_article"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_margin="50dp"
+        android:src="@drawable/neovim_conf"/>
 </LinearLayout>
+</ScrollView>

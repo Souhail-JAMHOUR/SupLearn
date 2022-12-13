@@ -19,25 +19,28 @@ import java.util.Collections;
 
 public class CoursesFragment extends Fragment
 {
+    static Course java ,react, angular, csharp, spring, kotlin, rust;
     ArrayList<Course> coursesArrayList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_courses, container, false);
+        View view = inflater.inflate(R.layout.fragment_courses, container, false);
+        java  = new Course("Java",view.getResources().getString(R.string.java), R.drawable.java_logo,LocalDate.of(2023,5,11));
+        react = new Course("React",view.getResources().getString(R.string.react), R.drawable.react_logo, LocalDate.of(2023,1,20));
+        angular = new Course("Angular", view.getResources().getString(R.string.angular), R.drawable.angular_logo, LocalDate.of(2022,12,30));
+        csharp = new Course("Csharp", view.getResources().getString(R.string.angular), R.drawable.csharp_logo, LocalDate.of(2023,12,30));
+        spring = new Course("Spring", view.getResources().getString(R.string.angular), R.drawable.spring_logo, LocalDate.of(2023,1,30));
+        kotlin = new Course("Kotlin", view.getResources().getString(R.string.kotlin), R.drawable.kotlin_logo, LocalDate.of(2022,2,10));
+        rust = new Course("Rust", view.getResources().getString(R.string.rust), R.drawable.rust_logo, LocalDate.of(2022,9,1));
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final Course[] courses = {
-                new Course("Java",view.getResources().getString(R.string.java), R.drawable.java_logo,LocalDate.of(2023,5,11)),
-                new Course("React",view.getResources().getString(R.string.react), R.drawable.react_logo, LocalDate.of(2023,1,20)),
-                new Course("Angular", view.getResources().getString(R.string.angular), R.drawable.angular_logo, LocalDate.of(2022,12,30)),
-                new Course("Kotlin", view.getResources().getString(R.string.kotlin), R.drawable.kotlin_logo, LocalDate.of(2022,2,10)),
-                new Course("Rust", view.getResources().getString(R.string.rust), R.drawable.rust_logo, LocalDate.of(2022,9,1))
-        };
+        final Course[] courses = {java, react, angular, csharp, spring, kotlin, rust};
         ListView listView = (ListView) view.findViewById(R.id.course_list_frag);
         Collections.addAll(coursesArrayList,courses);
         CoursesAdapterFragments adapter = new CoursesAdapterFragments(getContext(),coursesArrayList);

@@ -29,6 +29,7 @@ public class CourseMaterials extends AppCompatActivity {
         notif = findViewById(R.id.course_notification);
         enroll = findViewById(R.id.enroll_button);
         Intent intent = getIntent();
+        String userEmail = "souhailjamhour@gmail.com";
         String titleToAdd = intent.getStringExtra("title");
         String descriptionToAdd = intent.getStringExtra("description");
         LocalDate deadLine = LocalDate.parse(intent.getStringExtra("deadLine"),formatter);
@@ -40,7 +41,7 @@ public class CourseMaterials extends AppCompatActivity {
             enroll.setEnabled(false);
             notif.setText(R.string.course_not_available);
         }
-        enroll.setOnClickListener(view -> enrollCourse(titleToAdd,descriptionToAdd,img,deadLine));
+        enroll.setOnClickListener(view -> enrollCourse(userEmail,titleToAdd));
     }
 
     public boolean isStillUp(LocalDate date){
@@ -48,11 +49,49 @@ public class CourseMaterials extends AppCompatActivity {
     }
 
 
-    public void enrollCourse(String courseName, String description,int image,LocalDate date){
-        Course newCourse = new Course(courseName,description,image,date);
-        HomeFragment.enrolledCourses.add(newCourse);
-        Toast.makeText(getApplicationContext(),"Course Added",Toast.LENGTH_LONG).show();
-        startActivity(new Intent(this,HomeActivity.class));
+    public void enrollCourse(String email ,String courseName){
+        switch (courseName.toLowerCase()){
+            case "java":
+                addCourse(email,CoursesFragment.java);
+                break;
+            case "react":
+                addCourse(email,CoursesFragment.react);
+                break;
+            case "angular":
+                addCourse(email,CoursesFragment.angular);
+                break;
+            case "csharp":
+                addCourse(email,CoursesFragment.csharp);
+                break;
+            case "spring":
+                addCourse(email,CoursesFragment.spring);
+                break;
+            case "kotlin":
+                addCourse(email,CoursesFragment.kotlin);
+                break;
+            case "rust":
+                addCourse(email,CoursesFragment.rust);
+                break;
+            default:
+                Toast.makeText(getApplicationContext(),"Course not found Try later",Toast.LENGTH_LONG).show();
+                break;
+        }
+    }
+    public void addCourse(String email,Course newCourse){
+        boolean add = true;
+        for(Course course : ProfileFragment.enrolledCourses){
+            if (course.getName().equals(newCourse.getName())){
+                Toast.makeText(getApplicationContext(),"Course already enrolled check your profile",Toast.LENGTH_LONG).show();
+                add = false;
+            }
+        }
+        if (add){
+            ProfileFragment.enrolledCourses.add(newCourse);
+            Toast.makeText(getApplicationContext(),"Course Added",Toast.LENGTH_LONG).show();
+        }
+        Intent profile = new Intent(this,HomeActivity.class);
+        profile.putExtra("Frag","profile");
+        startActivity(profile);
     }
 
 

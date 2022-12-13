@@ -15,10 +15,10 @@ import com.example.learningapp.databinding.LoginActivityMainBinding;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    static String usermail;
     Button loginButton, registrationButton;
     EditText email , password;
     DbManager dbManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         registrationButton = findViewById(R.id.RegisterButton);
         email = findViewById(R.id.email_adress);
         password = findViewById(R.id.login_password);
+        usermail =email.getText().toString();
         registrationButton.setOnClickListener(v -> {
             Intent registrationIntent = new Intent(this,RegistrationActivity.class);
             startActivity(registrationIntent);
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             login.putExtra("name",info.get(2));
             login.putExtra("major",info.get(3));
             login.putExtra("email",info.get(4));
+            login.putExtra("courses",info.get(6));
             startActivity(login);
         }
         else if(emailText.equals("admin") && passwordText.equals("admin")){

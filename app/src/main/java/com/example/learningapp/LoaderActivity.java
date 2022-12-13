@@ -19,6 +19,6 @@ public class LoaderActivity extends AppCompatActivity {
                 startActivity(new Intent(LoaderActivity.this,MainActivity.class));
                 finish();
             }
-        },2000);
+        },2500);
     }
 }
