@@ -27,13 +27,13 @@ public class CoursesFragment extends Fragment
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_courses, container, false);
-        java  = new Course("Java",view.getResources().getString(R.string.java), R.drawable.java_logo,LocalDate.of(2023,5,11));
-        react = new Course("React",view.getResources().getString(R.string.react), R.drawable.react_logo, LocalDate.of(2023,1,20));
-        angular = new Course("Angular", view.getResources().getString(R.string.angular), R.drawable.angular_logo, LocalDate.of(2022,12,30));
-        csharp = new Course("Csharp", view.getResources().getString(R.string.angular), R.drawable.csharp_logo, LocalDate.of(2023,12,30));
-        spring = new Course("Spring", view.getResources().getString(R.string.angular), R.drawable.spring_logo, LocalDate.of(2023,1,30));
-        kotlin = new Course("Kotlin", view.getResources().getString(R.string.kotlin), R.drawable.kotlin_logo, LocalDate.of(2022,2,10));
-        rust = new Course("Rust", view.getResources().getString(R.string.rust), R.drawable.rust_logo, LocalDate.of(2022,9,1));
+        java  = new Course("Java",view.getResources().getString(R.string.java), R.drawable.java_logo,LocalDate.of(2023,5,11),LocalDate.of(2023,6,11));
+        react = new Course("React",view.getResources().getString(R.string.react), R.drawable.react_logo, LocalDate.of(2023,1,20),LocalDate.of(2023,2,20));
+        angular = new Course("Angular", view.getResources().getString(R.string.angular), R.drawable.angular_logo, LocalDate.of(2022,12,30),LocalDate.of(2023,1,20));
+        csharp = new Course("Csharp", view.getResources().getString(R.string.csharp), R.drawable.csharp_logo, LocalDate.of(2023,12,30),LocalDate.of(2024,1,30));
+        spring = new Course("Spring", view.getResources().getString(R.string.spring), R.drawable.spring_logo, LocalDate.of(2023,1,30),LocalDate.of(2023,2,20));
+        kotlin = new Course("Kotlin", view.getResources().getString(R.string.kotlin), R.drawable.kotlin_logo, LocalDate.of(2022,2,10),LocalDate.of(2022,3,10));
+        rust = new Course("Rust", view.getResources().getString(R.string.rust), R.drawable.rust_logo, LocalDate.of(2022,9,1),LocalDate.of(2022,10,1));
         return view;
     }
 

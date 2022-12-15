@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class CoursesActivity extends AppCompatActivity {
-    final Course[] courses = {
-            new Course("Java",getString(R.string.java), R.drawable.java_logo, LocalDate.of(2023,5,11)),
-            new Course("React",getString(R.string.react), R.drawable.react_logo, LocalDate.of(2023,1,20)),
-            new Course("Angular", getString(R.string.angular), R.drawable.angular_logo, LocalDate.of(2022,12,30)),
-            new Course("Kotlin", getString(R.string.kotlin), R.drawable.kotlin_logo, LocalDate.of(2023,2,10)),
-            new Course("Rust", getString(R.string.rust), R.drawable.rust_logo, LocalDate.of(2022,9,1))
-    };
+//    final Course[] courses = {
+//            new Course("Java",getString(R.string.java), R.drawable.java_logo, LocalDate.of(2023,5,11)),
+//            new Course("React",getString(R.string.react), R.drawable.react_logo, LocalDate.of(2023,1,20)),
+//            new Course("Angular", getString(R.string.angular), R.drawable.angular_logo, LocalDate.of(2022,12,30)),
+//            new Course("Kotlin", getString(R.string.kotlin), R.drawable.kotlin_logo, LocalDate.of(2023,2,10)),
+//            new Course("Rust", getString(R.string.rust), R.drawable.rust_logo, LocalDate.of(2022,9,1))
+//    };
     ArrayList<Course> coursesArrayList = new ArrayList<>();
     ListView courseList;
 
@@ -27,7 +27,7 @@ public class CoursesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
-        Collections.addAll(coursesArrayList,courses);
+//        Collections.addAll(coursesArrayList,courses);
         courseList = findViewById(R.id.course_list);
         CoursesAdapter adapter = new CoursesAdapter(this,coursesArrayList);
         courseList.setAdapter(adapter);

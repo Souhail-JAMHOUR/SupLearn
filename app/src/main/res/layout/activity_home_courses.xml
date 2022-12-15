@@ -42,7 +42,8 @@
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/red_warning"
             android:focusable="false"
-            android:text="@string/unsubscribe"/>
+            android:text="@string/unsubscribe"
+            app:cornerRadius="20dip"/>
     </LinearLayout>
 
 

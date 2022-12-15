@@ -4,19 +4,25 @@ package com.example.learningapp;
 import java.time.LocalDate;
 
 public class Course {
-    private LocalDate deadline;
+    private LocalDate deadline, endingDate;
     private String name;
     private String description;
     private int logo;
 
-    Course(String name, String description, int logo, LocalDate deadline){
+    Course(String name, String description, int logo, LocalDate deadline, LocalDate endingDate){
         this.name = name;
         this.description = description;
         this.logo = logo;
         this.deadline = deadline;
+        this.endingDate = endingDate;
     }
-    Course(int logo){
-        this.logo = logo;
+
+    public LocalDate getEndingDate() {
+        return endingDate;
+    }
+
+    public void setEndingDate(LocalDate endingDate) {
+        this.endingDate = endingDate;
     }
 
     public LocalDate getDeadline() {

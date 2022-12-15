@@ -36,10 +36,13 @@
 
 Lua is also one of the leading scripting languages used in game development, due to its simple syntax and short learning curve.</string>
     <string name="rust">Rust is a multi-paradigm, general-purpose programming language. Rust emphasizes performance, type safety, and concurrency. Rust enforces memory safety—that is, that all references point to valid memory—without requiring the use of a garbage collector or reference counting present in other memory-safe languages.[13][14] To simultaneously enforce memory safety and prevent concurrent data races, Rust\'s "borrow checker" tracks the object lifetime of all references in a program during compilation.[15] Rust is popular for systems programming[13] but also offers high-level features including some functional programming constructs.</string>
+    <string name="csharp">C# is a general-purpose, high-level multi-paradigm programming language. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.</string>
+    <string name="spring">The Spring Framework is an application framework and inversion of control container for the Java platform. The framework\'s core features can be used by any Java application, but there are extensions for building web applications on top of the Java EE platform.</string>
     <string name="course_not_available">We will provide a new session as soon as possible!</string>
     <string name="enrolled_courses">Enrolled Courses</string>
     <string name="unsubscribe">Unsub</string>
     <string name="go_to_course">Go To Course</string>
     <string name="events">Events</string>
     <string name="home">Home</string>
+    <string name="logo">logo</string>
 </resources>

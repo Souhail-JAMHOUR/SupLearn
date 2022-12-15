@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -41,13 +43,25 @@ public class CourseMaterials extends AppCompatActivity {
             enroll.setEnabled(false);
             notif.setText(R.string.course_not_available);
         }
-        enroll.setOnClickListener(view -> enrollCourse(userEmail,titleToAdd));
+        enroll.setOnClickListener(view -> confirmDecision(userEmail,titleToAdd));
     }
 
     public boolean isStillUp(LocalDate date){
         return LocalDate.now().isBefore(date);
     }
 
+    public void confirmDecision(String email,String courseName){
+        new AlertDialog.Builder(this)
+                .setTitle("Confirm Subscription")
+                .setMessage("Do you really want to enroll this course?")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        enrollCourse(email,courseName);
+                    }})
+                .setNegativeButton(android.R.string.no, null).show();
+    }
 
     public void enrollCourse(String email ,String courseName){
         switch (courseName.toLowerCase()){

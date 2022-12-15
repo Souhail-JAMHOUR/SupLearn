@@ -1,5 +1,7 @@
 package com.example.learningapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -69,4 +71,7 @@ public class ProfileFragment extends Fragment {
         intent.putExtra("Frag", "courses");
         startActivity(intent);
     }
+
+
+
 }

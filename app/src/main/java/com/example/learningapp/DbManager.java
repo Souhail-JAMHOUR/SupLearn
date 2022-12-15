@@ -13,17 +13,13 @@ import java.util.ArrayList;
 
 public class DbManager extends SQLiteOpenHelper {
 
-    // creating a constant variables for our database.
-    // below variable is for our database name.
+
     private static final String DB_NAME = "DataBase.db";
 
-    // below int is our database version
     private static final int DB_VERSION = 1;
 
-    // below variable is for our table name.
     private static final String TABLE_NAME = "User";
 
-    // below variable is for our id column.
     private static final String ID_COL = "id";
 
     private static final String STUDENT_ID = "student_id";
@@ -51,7 +47,6 @@ public class DbManager extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    // this method is use to add new course to our sqlite database.
     public void addNewUser(String studentId, String fullName,String major,String email, String password) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -63,7 +58,7 @@ public class DbManager extends SQLiteOpenHelper {
         values.put(MAJOR_COL,major);
         values.put(EMAIL_COL, email);
         values.put(PASSWORD_COL, password);
-        values.put(COURSES_COL, " ");
+        values.put(COURSES_COL, "");
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
